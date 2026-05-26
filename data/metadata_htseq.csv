@@ -1,0 +1,7 @@
+sampleName,fileName,condition
+Series1_NHBE_Mock_1,Series1_NHBE_Mock_1.counts,controle
+Series1_NHBE_Mock_2,Series1_NHBE_Mock_2.counts,controle
+Series1_NHBE_Mock_3,Series1_NHBE_Mock_3.counts,controle
+Series1_NHBE_SARS-CoV-2_1,Series1_NHBE_SARS-CoV-2_1.counts,tratamento
+Series1_NHBE_SARS-CoV-2_2,Series1_NHBE_SARS-CoV-2_2.counts,tratamento
+Series1_NHBE_SARS-CoV-2_3,Series1_NHBE_SARS-CoV-2_3.counts,tratamento

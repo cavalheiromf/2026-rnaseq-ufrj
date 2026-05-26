@@ -1,0 +1,18 @@
+# Dados grandes (não versionar!)
+data/raw/
+data/trimmed/
+reference/star_index/
+
+# Pastas de Resultados e Scripts (não versionar para os alunos)
+results/
+scripts/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Temp
+*.tmp
+*.log
+
