@@ -317,6 +317,26 @@ if (nrow(ora_go) > 0) {
     p_cnet <- cnetplot(ora_go, showCategory = 5, foldChange = NULL) + ggtitle("Rede Gene–Conceito (GO BP)")
     ggsave(file.path(dir_figs, "09_GO_BP_cnetplot.png"), p_cnet, width = 12, height = 10, dpi = 300)
 }
+
+# 2. ORA — KEGG Pathways
+ora_kegg <- enrichKEGG(
+    gene         = gene_entrez$ENTREZID,
+    organism     = "hsa",          # 'hsa' para Homo sapiens
+    pAdjustMethod = "BH",
+    pvalueCutoff = 0.05,
+    qvalueCutoff = 0.1
+)
+
+cat("Vias KEGG enriquecidas:", nrow(ora_kegg), "\n")
+
+# Salvar gráficos de KEGG se houver enriquecimento
+if (nrow(ora_kegg) > 0) {
+    p_kegg_dot <- dotplot(ora_kegg, showCategory = 20, title = "KEGG Pathways (ORA)")
+    ggsave(file.path(dir_figs, "10_KEGG_dotplot.png"), p_kegg_dot, width = 10, height = 8, dpi = 300)
+    
+    # Salvar tabela com os resultados do KEGG
+    write.csv(as.data.frame(ora_kegg), file = file.path(dir_tables, "KEGG_ORA_resultados.csv"), row.names = FALSE)
+}
 ```
 
 ---
@@ -328,6 +348,7 @@ Durante ou após a execução da prática, tente responder às seguintes questõ
 1. **Amostras PCA:** No gráfico de PCA gerado (`02_PCA.png`), os grupos controle e tratamento se separaram bem na primeira dimensão (PC1)? O que essa separação significa em termos biológicos?
 2. **Número de DEGs:** Quantos genes foram regulados positivamente (Up-regulated) e negativamente (Down-regulated)? Existe alguma assimetria óbvia na resposta celular frente à infecção de SARS-CoV-2?
 3. **Biologia da Resposta Humana:** Quais termos biológicos do Gene Ontology (GO) obtiveram maior enriquecimento no dotplot? O resultado faz sentido considerando que o tratamento foi uma infecção viral pulmonar? (Dica: procure por respostas imunológicas, antivirais e de interferon).
+4. **Vias KEGG:** Quais vias metabólicas ou de sinalização do KEGG obtiveram maior enriquecimento? Há alguma relação direta com a patologia ou mecanismos de infecção pelo SARS-CoV-2 (por exemplo, vias de infecção viral, resposta inflamatória ou sinalização de citocinas)?
 
 ---
 **🔬 Bom trabalho e excelente análise!**

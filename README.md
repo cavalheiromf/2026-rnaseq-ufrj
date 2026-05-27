@@ -1,20 +1,8 @@
-# RNA-seq Workshop — UFRJ 2026
+# RNA-seq Aula Prática — UFRJ 2026
 
 ## Análise de Expressão Diferencial de Genes
 
-Workshop prático de bioinformática focado na análise de dados de RNA-seq, desde o controle de qualidade até a identificação de genes diferencialmente expressos e enriquecimento funcional.
-
-**Instituição:** Universidade Federal do Rio de Janeiro (UFRJ)  
-**Ano:** 2026  
-**Instrutor(es):** Mariana Feitosa Cavalheiro
-
----
-
-# RNA-seq Workshop — UFRJ 2026
-
-## Análise de Expressão Diferencial de Genes
-
-Workshop prático de bioinformática focado na análise de dados de RNA-seq, desde o controle de qualidade até a identificação de genes diferencialmente expressos e enriquecimento funcional.
+Aula prática de bioinformática focada na análise de dados de RNA-seq, iniciando a partir da quantificação de contagens (dados do HTSeq-count) até a identificação de genes diferencialmente expressos e enriquecimento funcional.
 
 **Instituição:** Universidade Federal do Rio de Janeiro (UFRJ)  
 **Ano:** 2026  
@@ -22,12 +10,12 @@ Workshop prático de bioinformática focado na análise de dados de RNA-seq, des
 
 ---
 
-## Sobre este Repositório (Template do Aluno)
+## Sobre este Repositório (Seu Template de Trabalho)
 
-Este repositório foi estruturado como um **ponto de partida limpo (starter kit)** para os estudantes. Para garantir o aprendizado ativo e evitar "respostas prontas" desde o início:
+Este repositório foi estruturado como um **ponto de partida limpo (starter kit)** para você. Para garantir o seu aprendizado ativo e evitar "respostas prontas" desde o início:
 * As pastas de scripts (`scripts/`) e saídas geradas (`results/`) estão adicionadas ao `.gitignore` e não são versionadas.
-* O repositório já vem com o conjunto de **dados de contagem simulados/reais** na pasta `data/` prontos para uso.
-* O arquivo principal de orientação é o [TUTORIAL.md](file:///home/mfcaval/github/2026-rnaseq-ufrj/TUTORIAL.md), que serve como uma apostila/guia passo a passo para os alunos construírem seu próprio pipeline R.
+* O repositório já vem com o conjunto de **dados de contagem** na pasta `data/` prontos para uso.
+* O arquivo principal de orientação é o [TUTORIAL.md](file:///home/mfcaval/github/2026-rnaseq-ufrj/TUTORIAL.md), que serve como uma apostila/guia passo a passo para você construir seu próprio pipeline R.
 
 ---
 
@@ -45,9 +33,9 @@ Este repositório foi estruturado como um **ponto de partida limpo (starter kit)
     └── metadata_htseq.csv     # Tabela de metadados das amostras
 ```
 
-> **Nota:** Quando o script R for executado pelos alunos, as seguintes pastas serão criadas de forma automatizada no ambiente local:
-> * `scripts/` (onde o aluno criará/salvará o script da análise `analise_diferencial_htseq.R`)
-> * `results/` (contendo as subpastas `figures/`, `tables/` e `objects/` para salvar saídas)
+> **Nota:** Quando você executar o script R, as seguintes pastas serão criadas de forma automatizada no seu ambiente local:
+> * `scripts/` (onde você criará/salvará o seu script de análise `analise_diferencial_htseq.R`)
+> * `results/` (contendo as subpastas `figures/`, `tables/` e `objects/` para você salvar as saídas)
 
 ---
 
@@ -55,15 +43,12 @@ Este repositório foi estruturado como um **ponto de partida limpo (starter kit)
 
 ### Software
 
+Como as etapas de controle de qualidade, alinhamento e contagem já foram previamente processadas, você precisará apenas do R e RStudio instalados no seu computador local:
+
 | Ferramenta       | Versão mínima | Finalidade                         |
 |-----------------|--------------|--------------------------------------|
 | R               | ≥ 4.3        | Análise estatística                  |
 | RStudio         | ≥ 2024.04    | IDE para R (recomendado)             |
-| FastQC          | ≥ 0.12       | Controle de qualidade das reads      |
-| Trim Galore     | ≥ 0.6        | Trimming de adaptadores              |
-| STAR            | ≥ 2.7        | Mapeamento splice-aware              |
-| HTSeq           | ≥ 2.0        | htseq-count (quantificação)          |
-| samtools        | ≥ 1.17       | Manipulação de BAM                   |
 
 ### Instalação de Pacotes R (Preparação do Computador)
 
@@ -109,12 +94,12 @@ install.packages(c(
 
 ---
 
-## Pipeline Completo (Referência)
+## Pipeline Geral (Contexto)
 
-As etapas anteriores à expressão diferencial (já realizadas no servidor de bioinformática):
+As etapas prévias de bioinformática (já processadas e fornecidas como ponto de partida):
 
 ```
-FASTQ brutos → FastQC/MultiQC → Trim Galore → STAR (mapeamento) → htseq-count → [esta aula]
+FASTQ brutos → Controle de Qualidade (FastQC) → Trimming (Trimommatic) → Mapeamento (STAR) → Quantificação (htseq-count) → [Início desta Aula (DESeq2 no R)]
 ```
 
 ---
@@ -128,4 +113,3 @@ Para dúvidas sobre o material, entre em contato com mariana.cavalheiro@usp.br.
 ## Licença
 
 Este material é disponibilizado sob licença [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-
